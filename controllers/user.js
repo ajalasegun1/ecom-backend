@@ -11,3 +11,16 @@ exports.userById = (req, res, next, id) => {
       next();
     });
 };
+
+exports.read = (req, res) => {
+  req.profile.password = undefined;
+  return res.json(req.profile);
+};
+
+exports.update = (req, res) => {
+  User.findByIdAndUpdate(req.profile._id, req.body)
+    .then((user) => res.json(`${user._id} is updated...`))
+    .catch(() =>
+      res.json({ error: "Something went wrong while trying to update user..." })
+    );
+};

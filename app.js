@@ -8,6 +8,7 @@ const userRoutes = require("./routes/user");
 const categoryRoutes = require("./routes/category");
 const productRoutes = require("./routes/product");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 //DATABASE CONNECTION
 mongoose
@@ -23,12 +24,14 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(cors());
 
 //ROUTES
 app.use("/apiv1/user", authRoutes);
 app.use("/apiv1/user", userRoutes);
 app.use("/apiv1/category", categoryRoutes);
 app.use("/apiv1/product", productRoutes);
+app.use("/apiv1/products", productRoutes);
 
 //SERVER
 app.listen(port, () => console.log(`Server running on port:${port}`));

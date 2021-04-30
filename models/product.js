@@ -22,12 +22,16 @@ const productSchema = new Schema(
       trim: true,
     },
     category: {
-      type: ObjectId,
-      ref: "category",
+      type: Schema.Types.ObjectId,
+      ref: "Category",
       required: true,
     },
     quantity: {
       type: Number,
+    },
+    sold: {
+      type: Number,
+      default: 0
     },
     photo: {
       data: Buffer,

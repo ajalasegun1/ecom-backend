@@ -15,5 +15,5 @@ exports.signupValidator = (input) => {
       : "Password must be at least 6 characters long";
 
   const check = Object.values(this.signupErrors).every((item) => item === "");
-  return check
+  return check;
 };

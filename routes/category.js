@@ -5,7 +5,7 @@ const {
   categoryById,
   read,
   update,
-  remove
+  remove,
 } = require("../controllers/category");
 const { userById } = require("../controllers/user");
 const { requireSignin, isAuth, isAdmin } = require("../controllers/auth");
